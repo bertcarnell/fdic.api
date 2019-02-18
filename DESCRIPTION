@@ -1,0 +1,25 @@
+Package: fdic.api
+Title: API to the US FDIC Data
+Version: 0.1.0
+Authors@R: 
+    person(given = "Rob",
+           family = "Carnell",
+           role = c("aut", "cre"),
+           email = "bertcarnell@gmail.com")
+Description: This package provides an R interface to the web API at the US FDIC and to other FDIC data.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Imports: 
+    xml2,
+    rvest,
+    assertthat,
+    magrittr,
+    curl,
+    yaml,
+    jsonlite,
+    R6,
+    httr
+Suggests: 
+    testthat
