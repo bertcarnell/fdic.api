@@ -22,4 +22,5 @@ Imports:
     R6,
     httr
 Suggests: 
-    testthat
+    testthat,
+    covr
