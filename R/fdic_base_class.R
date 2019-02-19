@@ -81,7 +81,6 @@ fdic_base <- R6::R6Class("fdic_base",
     fdic_api = function(path, query) 
     {
       myurl <- httr::modify_url(private$fdicurl, path = path, query = query)
-      cat("Querying ", myurl, "\n")
       resp <- httr::GET(myurl)
 
       if (httr::http_type(resp) != "application/json") {
@@ -89,7 +88,7 @@ fdic_base <- R6::R6Class("fdic_base",
       }
 
       ret <- jsonlite::fromJSON(httr::content(resp, "text"), simplifyVector = TRUE)
-      return(list(meta = ret$meta, totals = ret$totals, data = ret$data$data))
+      return(list(query = myurl, meta = ret$meta, totals = ret$totals, data = ret$data$data))
     },
     setFilters = function(filters) {private$filters = filters},
     setFields = function(fields){
