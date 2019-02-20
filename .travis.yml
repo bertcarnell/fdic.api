@@ -7,15 +7,15 @@ matrix:
     - dist: xenial
       r: release
       apt_packages: libpoppler-cpp-dev
+      after_success: Rscript -e 'covr::codecov(line_exclusions=list("R/fdic_doc_function.R"))'
     - dist: trusty
       r: devel
       apt_packages: libpoppler-cpp-dev
     - os: osx
       r: release
 
-after_success:
-    - Rscript -e 'covr::codecov()'
-    
 sudo: false
 
 cache: packages
+warnings_are_errors: true
+r_check_args: "--as-cran"
