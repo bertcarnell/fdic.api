@@ -81,7 +81,7 @@ fdic_failures <- R6::R6Class("fdic_failures",
     setAgg_sum_fields = function(agg_sum_fields) {private$agg_sum_fields = agg_sum_fields},
     setAgg_limit = function(agg_limit) {private$agg_limit = agg_limit},
     setTotal_fields = function(total_fields) {private$total_fields = total_fields},
-    setSubtotal_by = function(subtotal_by) {private$subtotal_By = subtotal_by}
+    setSubtotal_by = function(subtotal_by) {private$subtotal_by = subtotal_by}
   ),
   private = list(
     yaml_file = "failure_properties.yaml",

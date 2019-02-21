@@ -41,9 +41,20 @@ test_that("fdic_failures works", {
     x$setAgg_by("CITYST")
     x$setAgg_limit(15) # only return 15 years
     x$setAgg_sum_fields("COST") # sum non interest income
+    x$setAgg_term_fields("FAILYR")
     temp <- x$query_fdic()
     expect_equal(nrow(temp$data), 15)
+    expect_equal(ncol(temp$data), 15)
+
+    x <- fdic_failures$new()
+    x$setFields(c("COST","FAILYR","CERT"))
+    x$setTotal_fields("COST")
+    x$setSubtotal_by("FAILYR")
+    temp <- x$query_fdic()
+    expect_equal(ncol(temp$totals$subtotal_by_FAILYR), 3)
+    expect_equal(nrow(temp$totals$subtotal_by_FAILYR), 10)
     expect_equal(ncol(temp$data), 3)
+    expect_true(nrow(temp$data) > 4000)
   } else
   {
     expect_true(TRUE)
