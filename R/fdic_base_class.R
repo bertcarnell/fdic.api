@@ -47,13 +47,7 @@ fdic_base <- R6::R6Class("fdic_base",
     #' Initialization Method
     #' @returns an object of type fdic_base 
     initialize = function() {
-      tryCatch({
-        private$yamlbase <- self$parse_yaml(private$yamlbasefile)
-      }, error = function(e) stop(e),
-      warning = function(w){
-        # incomplete final line is an expected warning
-        if (!grepl("incomplete final line", w)) warning(w)
-      })
+      suppressWarnings(private$yamlbase <- self$parse_yaml(private$yamlbasefile))
     },
     #' @description
     #' Parse the swagger YAML file
@@ -61,7 +55,9 @@ fdic_base <- R6::R6Class("fdic_base",
     #' @returns YAML file text
     parse_yaml = function(filename) {
       tempurl <- httr::modify_url(url = private$fdicurl, path = paste0("docs/", filename))
-      yaml::read_yaml(tempurl)
+      # incomplete final line is an expected warning
+      suppressWarnings(yaml_result <- yaml::read_yaml(tempurl))
+      return(yaml_result)
     },
     #' @description
     #' get the available return fields from the swagger document
