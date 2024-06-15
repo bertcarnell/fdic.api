@@ -52,35 +52,66 @@
 fdic_failures <- R6::R6Class("fdic_failures",
   inherit = fdic_base,
   public = list(
+    #' @description
+    #' Initialization Method
+    #' @returns an object of type fdic_sod
     initialize = function() {
       super$initialize()
       private$yamlderived <- super$parse_yaml(private$yaml_file)
     },
+    #' @description
+    #' Query FDIC API
+    #' @returns an object containing metadata and a data.frame 
     query_fdic = function() {
       super$fdic_api(private$query_path, 
         list(
           filters = private$filters,
           fields = paste(private$fields, collapse = ","),
           sort_by = private$sort_by,
+          sort_order = private$sort_order,
           limit = private$limit,
+          offset = private$offset,
           total_fields = private$total_fields,
           subtotal_by = private$subtotal_by,
           agg_by = private$agg_by,
           agg_term_fields = private$agg_term_fields,
           agg_sum_fields = private$agg_sum_fields,
           agg_limit = private$agg_limit,
-          offset = private$offset,
           format = private$format,
           download = private$download,
           filename = private$filename
         )
       )
     },
+    #' @description
+    #' Field by which the data will be aggregated
+    #' @param agg_by field to aggregate by
+    #' @returns NULL
     setAgg_by = function(agg_by) {private$agg_by = agg_by},
+    #' @description
+    #' Fields for which aggregations will be counted
+    #' @param agg_term_fields field to aggregate by
+    #' @returns NULL
     setAgg_term_fields = function(agg_term_fields) {private$agg_term_fields = agg_term_fields},
+    #' @description
+    #' Fields for which aggregations will be summed
+    #' @param agg_sum_fields field to aggregate by
+    #' @returns NULL
     setAgg_sum_fields = function(agg_sum_fields) {private$agg_sum_fields = agg_sum_fields},
+    #' @description
+    #' limit on how many aggregated fields will be displayed
+    #' @param agg_limit aggregation limits
+    #' @returns NULL
     setAgg_limit = function(agg_limit) {private$agg_limit = agg_limit},
+    #' @description
+    #' Fields to sum up
+    #' @param total_fields fields to sum
+    #' @returns NULL
     setTotal_fields = function(total_fields) {private$total_fields = total_fields},
+    #' @description
+    #' Field by which the data will be subtotaled
+    #' @param subtotal_by field to subtotal by
+    #' @returns NULL
     setSubtotal_by = function(subtotal_by) {private$subtotal_by = subtotal_by}
   ),
   private = list(

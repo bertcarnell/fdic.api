@@ -1,4 +1,4 @@
-# Copyright 2019 Robert Carnell
+# Copyright 2024 Robert Carnell
 
 #' @title FDIC API Query for Institutions
 #' 
@@ -51,16 +51,24 @@
 fdic_institutions <- R6::R6Class("fdic_institutions",
   inherit = fdic_base,
   public = list(
+    #' @description
+    #' Initialization Method
+    #' @returns an object of type fdic_institutions
     initialize = function() {
       super$initialize()
       private$yamlderived <- super$parse_yaml(private$yaml_file)
     },
+    #' @description
+    #' Query FDIC API
+    #' @returns an object containing metadata and a data.frame 
     query_fdic = function() {
       super$fdic_api(private$query_path, 
         list(
           filters = private$filters,
+          search = private$search,
           fields = paste(private$fields, collapse = ","),
           sort_by = private$sort_by,
+          sort_order = private$sort_order,
           limit = private$limit,
           offset = private$offset,
           format = private$format,
@@ -72,6 +80,7 @@ fdic_institutions <- R6::R6Class("fdic_institutions",
   ),
   private = list(
     yaml_file = "institution_properties.yaml",
-    query_path = "/api/institutions"
+    query_path = "/api/institutions",
+    search = NULL
   )
 )

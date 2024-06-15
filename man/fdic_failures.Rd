@@ -4,9 +4,10 @@
 \name{fdic_failures}
 \alias{fdic_failures}
 \title{FDIC API Query for Failure Information}
-\format{An object of class \code{R6ClassGenerator} of length 24.}
-\usage{
-fdic_failures
+\value{
+an object of type fdic_sod
+
+an object containing metadata and a data.frame
 }
 \description{
 A class to create Failure queries to the FDIC API.  Derived
@@ -97,3 +98,176 @@ if (curl::has_internet()) {
 \keyword{bank}
 \keyword{fdic}
 \keyword{financial}
+\section{Super class}{
+\code{\link[fdic.api:fdic_base]{fdic.api::fdic_base}} -> \code{fdic_failures}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-fdic_failures-new}{\code{fdic_failures$new()}}
+\item \href{#method-fdic_failures-query_fdic}{\code{fdic_failures$query_fdic()}}
+\item \href{#method-fdic_failures-setAgg_by}{\code{fdic_failures$setAgg_by()}}
+\item \href{#method-fdic_failures-setAgg_term_fields}{\code{fdic_failures$setAgg_term_fields()}}
+\item \href{#method-fdic_failures-setAgg_sum_fields}{\code{fdic_failures$setAgg_sum_fields()}}
+\item \href{#method-fdic_failures-setAgg_limit}{\code{fdic_failures$setAgg_limit()}}
+\item \href{#method-fdic_failures-setTotal_fields}{\code{fdic_failures$setTotal_fields()}}
+\item \href{#method-fdic_failures-setSubtotal_by}{\code{fdic_failures$setSubtotal_by()}}
+\item \href{#method-fdic_failures-clone}{\code{fdic_failures$clone()}}
+}
+}
+\if{html}{\out{
+<details><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="fdic_api"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-fdic_api'><code>fdic.api::fdic_base$fdic_api()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="get_available_field_description"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-get_available_field_description'><code>fdic.api::fdic_base$get_available_field_description()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="get_available_fields"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-get_available_fields'><code>fdic.api::fdic_base$get_available_fields()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="parse_yaml"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-parse_yaml'><code>fdic.api::fdic_base$parse_yaml()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="setFields"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-setFields'><code>fdic.api::fdic_base$setFields()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="setFilters"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-setFilters'><code>fdic.api::fdic_base$setFilters()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="setLimit"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-setLimit'><code>fdic.api::fdic_base$setLimit()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="setOffset"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-setOffset'><code>fdic.api::fdic_base$setOffset()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="setSort_by"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-setSort_by'><code>fdic.api::fdic_base$setSort_by()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="setSort_order"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-setSort_order'><code>fdic.api::fdic_base$setSort_order()</code></a></span></li>
+</ul>
+</details>
+}}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_failures-new"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_failures-new}{}}}
+\subsection{Method \code{new()}}{
+Initialization Method
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_failures$new()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_failures-query_fdic"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_failures-query_fdic}{}}}
+\subsection{Method \code{query_fdic()}}{
+Query FDIC API
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_failures$query_fdic()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_failures-setAgg_by"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_failures-setAgg_by}{}}}
+\subsection{Method \code{setAgg_by()}}{
+Field by which the data will be aggregated
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_failures$setAgg_by(agg_by)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{agg_by}}{field to aggregate by}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_failures-setAgg_term_fields"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_failures-setAgg_term_fields}{}}}
+\subsection{Method \code{setAgg_term_fields()}}{
+Fields for which aggregations will be counted
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_failures$setAgg_term_fields(agg_term_fields)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{agg_term_fields}}{field to aggregate by}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_failures-setAgg_sum_fields"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_failures-setAgg_sum_fields}{}}}
+\subsection{Method \code{setAgg_sum_fields()}}{
+Fields for which aggregations will be summed
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_failures$setAgg_sum_fields(agg_sum_fields)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{agg_sum_fields}}{field to aggregate by}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_failures-setAgg_limit"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_failures-setAgg_limit}{}}}
+\subsection{Method \code{setAgg_limit()}}{
+limit on how many aggregated fields will be displayed
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_failures$setAgg_limit(agg_limit)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{agg_limit}}{aggregation limits}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_failures-setTotal_fields"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_failures-setTotal_fields}{}}}
+\subsection{Method \code{setTotal_fields()}}{
+Fields to sum up
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_failures$setTotal_fields(total_fields)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{total_fields}}{fields to sum}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_failures-setSubtotal_by"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_failures-setSubtotal_by}{}}}
+\subsection{Method \code{setSubtotal_by()}}{
+Field by which the data will be subtotaled
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_failures$setSubtotal_by(subtotal_by)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{subtotal_by}}{field to subtotal by}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_failures-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_failures-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_failures$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

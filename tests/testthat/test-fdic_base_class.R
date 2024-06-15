@@ -6,7 +6,8 @@ test_that("fdic_api works", {
      x <- fdic_base$new()
      resp <- x$fdic_api("/api/institutions", 
        list(filters = "STALP:OH AND ACTIVE:1",
-         fields = "ZIP,OFFDOM,CITY,COUNTY,STNAME,STALP,NAME,ACTIVE,CERT,CBSA,ASSET,NETINC,DEP,DEPDOM,ROE,ROA,DATEUPDT,OFFICES",
+         fields = "ZIP,OFFDOM,CITY,COUNTY,STNAME,STALP,NAME,ACTIVE,CERT,CBSA,
+                   ASSET,NETINC,DEP,DEPDOM,ROE,ROA,DATEUPDT,OFFICES",
          sort_by = "OFFICES",
          sort_order = "DESC",
          limit = 10,
@@ -30,7 +31,8 @@ test_that("fdic_base errors", {
     expect_error(x$get_available_field_description())
     resp <- x$fdic_api("/api/institutions", 
                        list(filters = "STALP:OH AND ACTIVE:1",
-                            fields = "ZIP,OFFDOM,CITY,COUNTY,STNAME,STALP,NAME,ACTIVE,CERT,CBSA,ASSET,NETINC,DEP,DEPDOM,ROE,ROA,DATEUPDT,OFFICES",
+                            fields = "ZIP,OFFDOM,CITY,COUNTY,STNAME,STALP,NAME,ACTIVE,
+                                      CERT,CBSA,ASSET,NETINC,DEP,DEPDOM,ROE,ROA,DATEUPDT,OFFICES",
                             sort_by = "OFFICES",
                             sort_order = "DESC",
                             limit = 10,

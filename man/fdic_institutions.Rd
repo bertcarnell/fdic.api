@@ -4,9 +4,10 @@
 \name{fdic_institutions}
 \alias{fdic_institutions}
 \title{FDIC API Query for Institutions}
-\format{An object of class \code{R6ClassGenerator} of length 24.}
-\usage{
-fdic_institutions
+\value{
+an object of type fdic_institutions
+
+an object containing metadata and a data.frame
 }
 \description{
 A class to create Institutions queries to the FDIC API.  Derived
@@ -74,3 +75,68 @@ if (curl::has_internet()) {
 \keyword{bank}
 \keyword{fdic}
 \keyword{financial}
+\section{Super class}{
+\code{\link[fdic.api:fdic_base]{fdic.api::fdic_base}} -> \code{fdic_institutions}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-fdic_institutions-new}{\code{fdic_institutions$new()}}
+\item \href{#method-fdic_institutions-query_fdic}{\code{fdic_institutions$query_fdic()}}
+\item \href{#method-fdic_institutions-clone}{\code{fdic_institutions$clone()}}
+}
+}
+\if{html}{\out{
+<details><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="fdic_api"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-fdic_api'><code>fdic.api::fdic_base$fdic_api()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="get_available_field_description"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-get_available_field_description'><code>fdic.api::fdic_base$get_available_field_description()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="get_available_fields"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-get_available_fields'><code>fdic.api::fdic_base$get_available_fields()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="parse_yaml"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-parse_yaml'><code>fdic.api::fdic_base$parse_yaml()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="setFields"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-setFields'><code>fdic.api::fdic_base$setFields()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="setFilters"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-setFilters'><code>fdic.api::fdic_base$setFilters()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="setLimit"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-setLimit'><code>fdic.api::fdic_base$setLimit()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="setOffset"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-setOffset'><code>fdic.api::fdic_base$setOffset()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="setSort_by"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-setSort_by'><code>fdic.api::fdic_base$setSort_by()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="setSort_order"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-setSort_order'><code>fdic.api::fdic_base$setSort_order()</code></a></span></li>
+</ul>
+</details>
+}}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_institutions-new"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_institutions-new}{}}}
+\subsection{Method \code{new()}}{
+Initialization Method
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_institutions$new()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_institutions-query_fdic"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_institutions-query_fdic}{}}}
+\subsection{Method \code{query_fdic()}}{
+Query FDIC API
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_institutions$query_fdic()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_institutions-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_institutions-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_institutions$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

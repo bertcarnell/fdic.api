@@ -4,9 +4,16 @@
 \name{fdic_base}
 \alias{fdic_base}
 \title{FDIC API Query Base Class}
-\format{An object of class \code{R6ClassGenerator} of length 24.}
-\usage{
-fdic_base
+\value{
+an object of type fdic_base
+
+YAML file text
+
+a vector of field names
+
+field information
+
+the JSON results
 }
 \description{
 A base class, from which specific queries are derived.  This class
@@ -48,3 +55,213 @@ if (curl::has_internet()) {
 \keyword{bank}
 \keyword{fdic}
 \keyword{financial}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-fdic_base-new}{\code{fdic_base$new()}}
+\item \href{#method-fdic_base-parse_yaml}{\code{fdic_base$parse_yaml()}}
+\item \href{#method-fdic_base-get_available_fields}{\code{fdic_base$get_available_fields()}}
+\item \href{#method-fdic_base-get_available_field_description}{\code{fdic_base$get_available_field_description()}}
+\item \href{#method-fdic_base-fdic_api}{\code{fdic_base$fdic_api()}}
+\item \href{#method-fdic_base-setFilters}{\code{fdic_base$setFilters()}}
+\item \href{#method-fdic_base-setFields}{\code{fdic_base$setFields()}}
+\item \href{#method-fdic_base-setSort_by}{\code{fdic_base$setSort_by()}}
+\item \href{#method-fdic_base-setSort_order}{\code{fdic_base$setSort_order()}}
+\item \href{#method-fdic_base-setLimit}{\code{fdic_base$setLimit()}}
+\item \href{#method-fdic_base-setOffset}{\code{fdic_base$setOffset()}}
+\item \href{#method-fdic_base-clone}{\code{fdic_base$clone()}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_base-new"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_base-new}{}}}
+\subsection{Method \code{new()}}{
+Initialization Method
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_base$new()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_base-parse_yaml"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_base-parse_yaml}{}}}
+\subsection{Method \code{parse_yaml()}}{
+Parse the swagger YAML file
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_base$parse_yaml(filename)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{filename}}{the filename of the swagger document}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_base-get_available_fields"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_base-get_available_fields}{}}}
+\subsection{Method \code{get_available_fields()}}{
+get the available return fields from the swagger document
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_base$get_available_fields()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_base-get_available_field_description"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_base-get_available_field_description}{}}}
+\subsection{Method \code{get_available_field_description()}}{
+Get metadata about a field
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_base$get_available_field_description(field)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{field}}{the field name}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_base-fdic_api"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_base-fdic_api}{}}}
+\subsection{Method \code{fdic_api()}}{
+the FDIC API
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_base$fdic_api(path, query)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{path}}{the url}
+
+\item{\code{query}}{the query string}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_base-setFilters"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_base-setFilters}{}}}
+\subsection{Method \code{setFilters()}}{
+Set the filter for the API
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_base$setFilters(filters)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{filters}}{the text filter specification}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_base-setFields"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_base-setFields}{}}}
+\subsection{Method \code{setFields()}}{
+set the fields to be returned
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_base$setFields(fields)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{fields}}{a vector of fields to return}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_base-setSort_by"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_base-setSort_by}{}}}
+\subsection{Method \code{setSort_by()}}{
+Set the field to sort by
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_base$setSort_by(sort_by)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{sort_by}}{the field to sort by}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_base-setSort_order"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_base-setSort_order}{}}}
+\subsection{Method \code{setSort_order()}}{
+set the sort order
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_base$setSort_order(sort_order)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{sort_order}}{the sort order - \code{ASC} or \code{DESC}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_base-setLimit"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_base-setLimit}{}}}
+\subsection{Method \code{setLimit()}}{
+set the row limit of the result
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_base$setLimit(limit)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{limit}}{the row limit}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_base-setOffset"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_base-setOffset}{}}}
+\subsection{Method \code{setOffset()}}{
+set the offset
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_base$setOffset(offset)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{offset}}{the offset}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_base-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_base-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_base$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

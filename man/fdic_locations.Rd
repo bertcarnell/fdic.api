@@ -4,9 +4,10 @@
 \name{fdic_locations}
 \alias{fdic_locations}
 \title{FDIC API Query for Locations}
-\format{An object of class \code{R6ClassGenerator} of length 24.}
-\usage{
-fdic_locations
+\value{
+an object of type fdic_sod
+
+an object containing metadata and a data.frame
 }
 \description{
 A class to create Locations queries to the FDIC API.  Derived
@@ -64,3 +65,68 @@ if (curl::has_internet()) {
 \keyword{bank}
 \keyword{fdic}
 \keyword{financial}
+\section{Super class}{
+\code{\link[fdic.api:fdic_base]{fdic.api::fdic_base}} -> \code{fdic_locations}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-fdic_locations-new}{\code{fdic_locations$new()}}
+\item \href{#method-fdic_locations-query_fdic}{\code{fdic_locations$query_fdic()}}
+\item \href{#method-fdic_locations-clone}{\code{fdic_locations$clone()}}
+}
+}
+\if{html}{\out{
+<details><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="fdic_api"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-fdic_api'><code>fdic.api::fdic_base$fdic_api()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="get_available_field_description"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-get_available_field_description'><code>fdic.api::fdic_base$get_available_field_description()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="get_available_fields"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-get_available_fields'><code>fdic.api::fdic_base$get_available_fields()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="parse_yaml"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-parse_yaml'><code>fdic.api::fdic_base$parse_yaml()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="setFields"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-setFields'><code>fdic.api::fdic_base$setFields()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="setFilters"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-setFilters'><code>fdic.api::fdic_base$setFilters()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="setLimit"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-setLimit'><code>fdic.api::fdic_base$setLimit()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="setOffset"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-setOffset'><code>fdic.api::fdic_base$setOffset()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="setSort_by"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-setSort_by'><code>fdic.api::fdic_base$setSort_by()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="fdic.api" data-topic="fdic_base" data-id="setSort_order"><a href='../../fdic.api/html/fdic_base.html#method-fdic_base-setSort_order'><code>fdic.api::fdic_base$setSort_order()</code></a></span></li>
+</ul>
+</details>
+}}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_locations-new"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_locations-new}{}}}
+\subsection{Method \code{new()}}{
+Initialization Method
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_locations$new()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_locations-query_fdic"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_locations-query_fdic}{}}}
+\subsection{Method \code{query_fdic()}}{
+Query FDIC API
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_locations$query_fdic()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fdic_locations-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-fdic_locations-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{fdic_locations$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

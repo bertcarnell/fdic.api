@@ -1,6 +1,6 @@
-# Copyright 2019 Robert Carnell
+# Copyright 2024 Robert Carnell
 
-#' @title FDIC API Query for Locations
+#' @title FDIC API Query for brank financials
 #' 
 #' @description A class to create Locations queries to the FDIC API.  Derived
 #' from class \code{fdic_base}.
@@ -34,16 +34,16 @@
 #' 
 #' @examples
 #' if (curl::has_internet()) {
-#'   x <- fdic_locations$new()
+#'   x <- fdic_financials$new()
 #'   x$get_available_fields()
 #'   x$get_available_field_description("CBSA")
 #' }
-fdic_locations <- R6::R6Class("fdic_locations",
+fdic_financials <- R6::R6Class("fdic_financials",
   inherit = fdic_base,
   public = list(
     #' @description
     #' Initialization Method
-    #' @returns an object of type fdic_sod
+    #' @returns an object of type fdic_financials
     initialize = function() {
       super$initialize()
       private$yamlderived <- super$parse_yaml(private$yaml_file)
@@ -53,21 +53,21 @@ fdic_locations <- R6::R6Class("fdic_locations",
     #' @returns an object containing metadata and a data.frame 
     query_fdic = function() {
       super$fdic_api(private$query_path, 
-        list(
-          filters = private$filters,
-          fields = paste(private$fields, collapse = ","),
-          sort_by = private$sort_by,
-          limit = private$limit,
-          offset = private$offset,
-          format = private$format,
-          download = private$download,
-          filename = private$filename
-        )
+                     list(
+                       filters = private$filters,
+                       fields = paste(private$fields, collapse = ","),
+                       sort_by = private$sort_by,
+                       limit = private$limit,
+                       offset = private$offset,
+                       format = private$format,
+                       download = private$download,
+                       filename = private$filename
+                     )
       )
     }
   ),
   private = list(
-    yaml_file = "location_properties.yaml",
+    yaml_file = "risview_properties.yaml",
     query_path = "/api/locations"
   )
 )

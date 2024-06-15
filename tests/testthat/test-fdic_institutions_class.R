@@ -8,18 +8,18 @@ test_that("fdic_instiutions works", {
     expect_true(length(field_temp) > 130)
     descrip_temp <- x$get_available_field_description("CBSA")
     expect_equal(descrip_temp$type, "string")
-    expect_equal(descrip_temp$title, "Name of the Core Based Statistical Area")
-    expect_true(grepl("^The name associated", descrip_temp$description))
+    expect_equal(descrip_temp$title, "Core Based Statistical Area Name")
+    expect_true(grepl("^Name of the Core", descrip_temp$description))
     
     x <- fdic_institutions$new()
     x$setFilters("STALP:OH AND ACTIVE:1")
     temp <- x$query_fdic()
-    expect_equal(ncol(temp$data), 133)
+    expect_equal(ncol(temp$data), 150)
     expect_true(temp$totals$count > 0)
     expect_true(temp$meta$total > 0)
     x$setOffset(1)
     temp <- x$query_fdic()
-    expect_equal(ncol(temp$data), 133)
+    expect_equal(ncol(temp$data), 150)
     expect_true(temp$totals$count > 0)
     expect_true(temp$meta$total > 0)
     
@@ -29,7 +29,7 @@ test_that("fdic_instiutions works", {
                   "CERT","CBSA","ASSET","NETINC","DEP","DEPDOM","ROE","ROA",
                   "DATEUPDT","OFFICES"))
     temp <- x$query_fdic()
-    expect_equal(ncol(temp$data), 18)
+    expect_equal(ncol(temp$data), 19)
     expect_true(temp$totals$count > 0)
     expect_true(temp$meta$total > 0)
     
@@ -40,7 +40,7 @@ test_that("fdic_instiutions works", {
                   "DATEUPDT","OFFICES"))
     x$setSort_by("OFFICES")
     temp <- x$query_fdic()
-    expect_equal(ncol(temp$data), 18)
+    expect_equal(ncol(temp$data), 19)
     expect_true(temp$totals$count > 0)
     expect_true(temp$meta$total > 0)
 
