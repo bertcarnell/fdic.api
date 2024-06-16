@@ -56,7 +56,6 @@ Example sort_by: \code{NAME}
 if (curl::has_internet()) {
   x <- fdic_demographics$new()
   x$get_available_fields()
-  x$get_available_field_description("CBSA")
 }
 }
 \references{

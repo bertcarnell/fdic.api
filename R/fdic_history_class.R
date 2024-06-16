@@ -36,7 +36,6 @@
 #' if (curl::has_internet()) {
 #'   x <- fdic_history$new()
 #'   x$get_available_fields()
-#'   x$get_available_field_description("CBSA")
 #' }
 fdic_history <- R6::R6Class("fdic_history",
   inherit = fdic_base,
