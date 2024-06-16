@@ -1,6 +1,4 @@
 ^codecov\.yml$
-^\.travis\.yml$
 ^LICENSE$
 ^fdic\.api\.Rproj$
 ^\.Rproj\.user$
-^test.R$
