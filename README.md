@@ -11,7 +11,7 @@ with:
 
 ``` r
 if (!require(devtools)) install.packages("devtools")
-devtools::install_github("bertcarnell/tornado")
+devtools::install_github("bertcarnell/fdic.api")
 ```
 
 ## API endpoints
