@@ -1,7 +1,5 @@
 context("test-fdic_locations_class")
 
-source("tests/testthat/api_key_secret.R")
-
 test_that("fdic_locations works", {
   if (curl::has_internet()) 
   {

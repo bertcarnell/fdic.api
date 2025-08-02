@@ -53,7 +53,7 @@ fdic_institutions <- R6::R6Class("fdic_institutions",
   public = list(
     #' @description
     #' Initialization Method
-    #' @api_key API key
+    #' @param api_key API key
     #' @returns an object of type fdic_institutions
     initialize = function(api_key) {
       super$initialize(api_key)

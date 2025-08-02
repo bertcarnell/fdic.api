@@ -137,9 +137,16 @@ if (curl::has_internet()) {
 \subsection{Method \code{new()}}{
 Initialization Method
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{fdic_failures$new()}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{fdic_failures$new(api_key)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{api_key}}{API key}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-fdic_failures-query_fdic"></a>}}

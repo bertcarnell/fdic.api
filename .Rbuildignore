@@ -3,4 +3,4 @@
 ^fdic\.api\.Rproj$
 ^\.Rproj\.user$
 ^\.github$
-^tests/testthat/api_key_secret.R
+^tests/testthat/setup.R

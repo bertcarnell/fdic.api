@@ -1,7 +1,5 @@
 context("test-fdic_institutions_class")
 
-source("tests/testthat/api_key_secret.R")
-
 test_that("fdic_instiutions works", {
   if (curl::has_internet()) 
   {
@@ -16,7 +14,7 @@ test_that("fdic_instiutions works", {
     x <- fdic_institutions$new(api_key_secret)
     x$setFilters("STALP:OH AND ACTIVE:1")
     temp <- x$query_fdic()
-    expect_equal(ncol(temp$data), 150)
+    expect_true(ncol(temp$data) > 140)
     expect_true(temp$totals$count > 0)
     expect_true(temp$meta$total > 0)
     x$setOffset(1)

@@ -3,7 +3,7 @@
 \docType{class}
 \name{fdic_demographics}
 \alias{fdic_demographics}
-\title{FDIC API Query for brank demographics}
+\title{FDIC API Query for bank demographics}
 \value{
 an object of type fdic_demographics
 
@@ -97,9 +97,16 @@ if (curl::has_internet()) {
 \subsection{Method \code{new()}}{
 Initialization Method
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{fdic_demographics$new()}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{fdic_demographics$new(api_key)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{api_key}}{API key}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-fdic_demographics-query_fdic"></a>}}

@@ -35,8 +35,8 @@ can be used directly for a user-derived query
 }
 
 \examples{
-if (curl::has_internet()) {
-  x <- fdic_base$new()
+/dontrun {
+  x <- fdic_base$new(api_key_secret)
   resp <- x$fdic_api("/api/institutions", 
     list(filters = "STALP:OH AND ACTIVE:1",
       fields = "ZIP,OFFDOM,CITY,COUNTY,STNAME,STALP,NAME,ACTIVE,CERT,CBSA,ASSET",
@@ -78,9 +78,16 @@ if (curl::has_internet()) {
 \subsection{Method \code{new()}}{
 Initialization Method
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{fdic_base$new()}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{fdic_base$new(api_key)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{api_key}}{API key from api.fdic.gov}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-fdic_base-parse_yaml"></a>}}

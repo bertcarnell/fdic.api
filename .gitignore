@@ -2,4 +2,4 @@
 .Rhistory
 .RData
 .Ruserdata
-tests/testthat/api_key_secret.R
+tests/testthat/setup.R

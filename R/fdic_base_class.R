@@ -45,7 +45,7 @@ fdic_base <- R6::R6Class("fdic_base",
   public = list(
     #' @description
     #' Initialization Method
-    #' @param apikey API key from api.fdic.gov
+    #' @param api_key API key from api.fdic.gov
     #' @returns an object of type fdic_base 
     initialize = function(api_key) {
       suppressWarnings(private$yamlbase <- self$parse_yaml(private$yamlbasefile))
