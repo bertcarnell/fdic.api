@@ -1,6 +1,6 @@
 # Copyright 2024 Robert Carnell
 
-#' @title FDIC API Query for brank demographics
+#' @title FDIC API Query for bank demographics
 #' 
 #' @description A class to create Locations queries to the FDIC API.  Derived
 #' from class \code{fdic_base}.
@@ -42,31 +42,38 @@ fdic_demographics <- R6::R6Class("fdic_demographics",
   public = list(
     #' @description
     #' Initialization Method
+    #' @param api_key API key
     #' @returns an object of type fdic_demographics 
-   initialize = function() {
-     super$initialize()
+   initialize = function(api_key) {
+     super$initialize(api_key)
      private$yamlderived <- super$parse_yaml(private$yaml_file)
    },
    #' @description
    #' Query FDIC API
    #' @returns an object containing metadata and a data.frame 
    query_fdic = function() {
-     super$fdic_api(private$query_path, 
-                    list(
-                      filters = private$filters,
-                      fields = paste(private$fields, collapse = ","),
-                      sort_by = private$sort_by,
-                      limit = private$limit,
-                      offset = private$offset,
-                      format = private$format,
-                      download = private$download,
-                      filename = private$filename
-                    )
+     my_query <- list(
+       limit = private$limit,
+       offset = private$offset,
+       format = private$format,
+       download = private$download,
+       filename = private$filename
      )
+     if (private$filters != "") {
+       my_query$filters <- private$filters
+     }
+     if (private$fields != "") {
+       my_query$fields <- paste(private$fields, collapse = ",")
+     }
+     if (private$sort_by != "") {
+       my_query$sort_by <- private$sort_by
+     }
+     
+     super$fdic_api(private$query_path, my_query)
    }
   ),
   private = list(
    yaml_file = "demographics_properties.yaml",
-   query_path = "/api/locations"
+   query_path = "/banks/locations"
   )
 )

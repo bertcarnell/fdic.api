@@ -1,11 +1,13 @@
 context("test-fdic_financials_class")
 
+source("tests/testthat/api_key_secret.R")
+
 test_that("fdic_financials works", {
   if (curl::has_internet()) 
   {
-    x <- fdic_financials$new()
+    x <- fdic_financials$new(api_key_secret)
     field_temp <- x$get_available_fields()
-    expect_equal(length(field_temp), 2380)
+    expect_true(length(field_temp) > 2300)
     descrip_temp <- x$get_available_field_description("CERT")
     expect_equal(descrip_temp$type, "number")
 

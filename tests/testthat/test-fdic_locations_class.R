@@ -1,9 +1,11 @@
 context("test-fdic_locations_class")
 
+source("tests/testthat/api_key_secret.R")
+
 test_that("fdic_locations works", {
   if (curl::has_internet()) 
   {
-    x <- fdic_locations$new()
+    x <- fdic_locations$new(api_key_secret)
     field_temp <- x$get_available_fields()
     expect_equal(length(field_temp), 35)
     descrip_temp <- x$get_available_field_description("CBSA")
@@ -11,14 +13,14 @@ test_that("fdic_locations works", {
     expect_equal(descrip_temp$title, "Core Based Statistical Area Name")
     expect_true(grepl("^Name of the Core", descrip_temp$description))
     
-    x <- fdic_locations$new()
+    x <- fdic_locations$new(api_key_secret)
     x$setFilters("COUNTY:Franklin")
     temp <- x$query_fdic()
     expect_equal(ncol(temp$data), 38)
     expect_true(temp$totals$count > 0)
     expect_true(temp$meta$total > 0)
     
-    x <- fdic_locations$new()
+    x <- fdic_locations$new(api_key_secret)
     x$setFields(c("NAME","UNINUM","SERVTYPE","RUNDATE","CITY","STNAME","ZIP","COUNTY"))
     temp <- x$query_fdic()
     expect_equal(ncol(temp$data), 9)
@@ -26,7 +28,7 @@ test_that("fdic_locations works", {
     expect_true(temp$totals$count > 10000)
     expect_true(temp$meta$total > 10000)
     
-    x <- fdic_locations$new()
+    x <- fdic_locations$new(api_key_secret)
     x$setSort_by("NAME")
     x$setSort_order("DESC")
     x$setLimit(100)

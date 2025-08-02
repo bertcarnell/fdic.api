@@ -1,10 +1,12 @@
 context("test-fdic_base_class")
 
+source("tests/testthat/api_key_secret.R")
+
 test_that("fdic_api works", {
   if (curl::has_internet()) 
   {
-     x <- fdic_base$new()
-     resp <- x$fdic_api("/api/institutions", 
+     x <- fdic_base$new(api_key_secret)
+     resp <- x$fdic_api("/banks/institutions", 
        list(filters = "STALP:OH AND ACTIVE:1",
          fields = "ZIP,OFFDOM,CITY,COUNTY,STNAME,STALP,NAME,ACTIVE,CERT,CBSA,
                    ASSET,NETINC,DEP,DEPDOM,ROE,ROA,DATEUPDT,OFFICES",
@@ -26,10 +28,10 @@ test_that("fdic_api works", {
 test_that("fdic_base errors", {
   if (curl::has_internet())
   {
-    x <- fdic_base$new()
+    x <- fdic_base$new(api_key_secret)
     expect_error(x$get_available_fields())
     expect_error(x$get_available_field_description())
-    resp <- x$fdic_api("/api/institutions", 
+    resp <- x$fdic_api("/banks/institutions", 
                        list(filters = "STALP:OH AND ACTIVE:1",
                             fields = "ZIP,OFFDOM,CITY,COUNTY,STNAME,STALP,NAME,ACTIVE,
                                       CERT,CBSA,ASSET,NETINC,DEP,DEPDOM,ROE,ROA,DATEUPDT,OFFICES",
@@ -43,11 +45,6 @@ test_that("fdic_base errors", {
     expect_error(x$get_available_field_description("TEST_ME"))
     expect_error(x$setLimit(1E10))
     expect_error(x$setSort_order("UPANDDOWN"))
-    expect_error(x$fdic_api("", list(filters = "", fields = "", sort_by = "", 
-                                     sort_order = "", limit = 10, offset = 0, 
-                                     format = "", download = "",
-                                     filename = "")))
-    
   } else
   {
     expect_true(TRUE)

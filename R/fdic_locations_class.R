@@ -43,9 +43,10 @@ fdic_locations <- R6::R6Class("fdic_locations",
   public = list(
     #' @description
     #' Initialization Method
+    #' @param api_key API key
     #' @returns an object of type fdic_sod
-    initialize = function() {
-      super$initialize()
+    initialize = function(api_key) {
+      super$initialize(api_key)
       private$yamlderived <- super$parse_yaml(private$yaml_file)
     },
     #' @description
@@ -68,6 +69,6 @@ fdic_locations <- R6::R6Class("fdic_locations",
   ),
   private = list(
     yaml_file = "location_properties.yaml",
-    query_path = "/api/locations"
+    query_path = "/banks/locations"
   )
 )

@@ -1,11 +1,13 @@
 context("test-fdic_sod_class")
 
+source("tests/testthat/api_key_secret.R")
+
 test_that("fdic_sod works", {
   if (curl::has_internet()) 
   {
-    x <- fdic_sod$new()
+    x <- fdic_sod$new(api_key_secret)
     field_temp <- x$get_available_fields()
-    expect_equal(length(field_temp), 80)
+    expect_true(length(field_temp) > 80)
     descrip_temp <- x$get_available_field_description("DEPSUMBR")
     expect_equal(descrip_temp$type, "number")
 

@@ -3,7 +3,7 @@ context("test-fdic_history_class")
 test_that("fdic_history works", {
   if (curl::has_internet()) 
   {
-    x <- fdic_history$new()
+    x <- fdic_history$new(api_key_secret)
     field_temp <- x$get_available_fields()
     expect_equal(length(field_temp), 176)
     descrip_temp <- x$get_available_field_description("CERT")

@@ -45,9 +45,10 @@ fdic_summary <- R6::R6Class("fdic_summary",
   public = list(
     #' @description
     #' Initialization Method
+    #' @param api_key API key
     #' @returns an object of type fdic_sod
-    initialize = function() {
-      super$initialize()
+    initialize = function(api_key) {
+      super$initialize(api_key)
       private$yamlderived <- super$parse_yaml(private$yaml_file)
     },
     #' @description
@@ -106,7 +107,7 @@ fdic_summary <- R6::R6Class("fdic_summary",
   ),
   private = list(
     yaml_file = "summary_properties.yaml",
-    query_path = "/api/summary",
+    query_path = "/banks/summary",
     agg_by = NULL,
     agg_term_fields = NULL,
     agg_sum_fields = NULL,

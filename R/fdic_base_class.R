@@ -28,8 +28,8 @@
 #' @export
 #' 
 #' @examples
-#' if (curl::has_internet()) {
-#'   x <- fdic_base$new()
+#' /dontrun {
+#'   x <- fdic_base$new(api_key_secret)
 #'   resp <- x$fdic_api("/api/institutions", 
 #'     list(filters = "STALP:OH AND ACTIVE:1",
 #'       fields = "ZIP,OFFDOM,CITY,COUNTY,STNAME,STALP,NAME,ACTIVE,CERT,CBSA,ASSET",
@@ -45,16 +45,18 @@ fdic_base <- R6::R6Class("fdic_base",
   public = list(
     #' @description
     #' Initialization Method
+    #' @param apikey API key from api.fdic.gov
     #' @returns an object of type fdic_base 
-    initialize = function() {
+    initialize = function(api_key) {
       suppressWarnings(private$yamlbase <- self$parse_yaml(private$yamlbasefile))
+      private$api_key <- api_key
     },
     #' @description
     #' Parse the swagger YAML file
     #' @param filename the filename of the swagger document
     #' @returns YAML file text
     parse_yaml = function(filename) {
-      tempurl <- httr::modify_url(url = private$fdicurl, path = paste0("docs/", filename))
+      tempurl <- httr::modify_url(url = private$fdicurl, path = paste0("banks/docs/", filename))
       # incomplete final line is an expected warning
       suppressWarnings(yaml_result <- yaml::read_yaml(tempurl))
       return(yaml_result)
@@ -95,6 +97,7 @@ fdic_base <- R6::R6Class("fdic_base",
     #' @returns the JSON results
     fdic_api = function(path, query) 
     {
+      query <- c(api_key = private$api_key, query)
       myurl <- httr::modify_url(private$fdicurl, path = path, query = query)
       resp <- httr::GET(myurl)
 
@@ -159,7 +162,7 @@ fdic_base <- R6::R6Class("fdic_base",
     yamlbasefile = "swagger.yaml",
     yamlbase = character(),
     yamlderived = character(),
-    fdicurl = "https://banks.data.fdic.gov",
+    fdicurl = "https://api.fdic.gov",
     filters = "",
     fields = "",
     sort_by = "",
@@ -168,6 +171,7 @@ fdic_base <- R6::R6Class("fdic_base",
     offset = 0,
     format = "json",
     download = "false",
-    filename = "data_file"
+    filename = "data_file",
+    api_key = ""
   )
 )
