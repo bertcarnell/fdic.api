@@ -31,10 +31,16 @@ Implemented Endpoints
 
 ## Quick Start
 
+### Obtain an API Key for the FDIC site
+
+```r
+api_key <- "ABCDEFGHIJKLMNOP"
+```
+
 ### Explore the API
 
 ``` r
-fdic_loc_con <- fdic_locations$new()
+fdic_loc_con <- fdic_locations$new(api_key)
 fdic_loc_con$get_available_fields()
 fdic_loc_con$get_available_field_description("CBSA")
 ```
@@ -53,3 +59,11 @@ results <- fdic_loc_con$query_fdic()
 head(results)
 ```
 
+## Running Tests in Development
+
+In order to run the tests using `testthat` you must either
+
+- use an environment variable containing the API key: `FDIC_API_KEY`
+- create a file called `setup.R` with the API key:
+    - `api_key_secret <- "ABCDEFGHIJKLM"`
+    
