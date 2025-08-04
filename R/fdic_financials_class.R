@@ -33,8 +33,9 @@
 #' @export
 #' 
 #' @examples
-#' if (curl::has_internet()) {
-#'   x <- fdic_financials$new()
+#' api_key_secret <- Sys.getenv("FDIC_API_KEY")
+#' if (curl::has_internet() & api_key_secret != "") {
+#'   x <- fdic_financials$new(api_key_secret)
 #'   x$get_available_fields()
 #' }
 fdic_financials <- R6::R6Class("fdic_financials",

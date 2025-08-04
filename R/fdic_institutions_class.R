@@ -33,12 +33,13 @@
 #' @export
 #' 
 #' @examples
-#' if (curl::has_internet()) {
-#'   x <- fdic_institutions$new()
+#' api_key_secret <- Sys.getenv("FDIC_API_KEY")
+#' if (curl::has_internet() & api_key_secret != "") {
+#'   x <- fdic_institutions$new(api_key_secret)
 #'   x$get_available_fields()
 #'   x$get_available_field_description("CBSA")
 #'   
-#'   x <- fdic_institutions$new()
+#'   x <- fdic_institutions$new(api_key_secret)
 #'   x$setFilters("STALP:OH AND ACTIVE:1")
 #'   x$setFields(c("ZIP","OFFDOM","CITY","COUNTY","STNAME","STALP","NAME","ACTIVE",
 #'                 "CERT","CBSA","ASSET","NETINC","DEP","DEPDOM","ROE","ROA",

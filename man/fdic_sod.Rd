@@ -53,8 +53,9 @@ Example sort_by: \code{NAME}
 }
 
 \examples{
-if (curl::has_internet()) {
-  x <- fdic_sod$new()
+api_key_secret <- Sys.getenv("FDIC_API_KEY")
+if (curl::has_internet() & api_key_secret != "") {
+  x <- fdic_sod$new(api_key_secret)
   x$get_available_fields()
 }
 }

@@ -28,7 +28,8 @@
 #' @export
 #' 
 #' @examples
-#' /dontrun {
+#' api_key_secret <- Sys.getenv("FDIC_API_KEY")
+#' if (curl::has_internet() & api_key_secret != "") {
 #'   x <- fdic_base$new(api_key_secret)
 #'   resp <- x$fdic_api("/api/institutions", 
 #'     list(filters = "STALP:OH AND ACTIVE:1",

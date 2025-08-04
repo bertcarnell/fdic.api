@@ -86,8 +86,9 @@ Example sort_by: \code{FAILDATE}
 }
 
 \examples{
-if (curl::has_internet()) {
-  x <- fdic_failures$new()
+api_key_secret <- Sys.getenv("FDIC_API_KEY")
+if (curl::has_internet() & api_key_secret != "") {
+  x <- fdic_failures$new(api_key_secret)
   x$get_available_fields()
   x$get_available_field_description("FAILDATE")
 }
