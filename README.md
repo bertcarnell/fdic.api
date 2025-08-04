@@ -34,7 +34,7 @@ Implemented Endpoints
 ### Obtain an API Key for the FDIC site
 
 ```r
-api_key <- "ABCDEFGHIJKLMNOP"
+api_key <- "YOUR_KEY_HERE"
 ```
 
 ### Explore the API
@@ -64,6 +64,8 @@ head(results)
 In order to run the tests using `testthat` you must either
 
 - use an environment variable containing the API key: `FDIC_API_KEY`
+    - `withr::with_envvar(c("FDIC_API_KEY" = "YOUR_KEY_HERE"), devtools::test())`
+    - `withr::with_envvar(c("FDIC_API_KEY" = "YOUR_KEY_HERE"), devtools::check())`
 - create a file called `setup.R` with the API key:
-    - `api_key_secret <- "ABCDEFGHIJKLM"`
+    - `api_key_secret <- "YOUR_KEY_HERE"`
     
